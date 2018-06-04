@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="com.tw.study.springbootdemo.mapper.StudentMapper" >
+    <resultMap id="BaseResultMap" type="com.tw.study.springbootdemo.po.StudentPo" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="gender" property="gender" jdbcType="TINYINT" />
+        <result column="desc" property="desc" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        id, name, gender
+    </sql>
+
+
+
+    <insert id="addStudent" useGeneratedKeys="true" keyProperty="id" parameterType="com.tw.study.springbootdemo.po.StudentPo" >
+        INSERT INTO
+        student
+        (name,gender)
+        VALUES
+        (#{name}, #{gender})
+    </insert>
+
+
+    <select id="query" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        FROM student
+    </select>
+
+
+</mapper>
