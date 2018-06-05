@@ -21,12 +21,6 @@ public class SpringBootDemoApplicationTests {
 
   @Test
   public void contextLoads() {
-
-
-    List<StudentPo> list = studentMapper.query();
-    Assert.assertNotNull(list);
-    Assert.assertTrue(list.size() > 0);
-    Assert.assertEquals(1, 1);
   }
 
 }
